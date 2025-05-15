@@ -52,14 +52,13 @@ h1, h2 {
   font-size: 14px;
   z-index: 1000;
   opacity: 0;
-  animation: fadeInOut 4s forwards;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(20px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(20px); }
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 button {
