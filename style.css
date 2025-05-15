@@ -40,6 +40,28 @@ h1, h2 {
   color: #a9b7c6;
 }
 
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4a4a4a;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00000080;
+  font-size: 14px;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInOut 4s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
 button {
   margin-top: 8px;
   padding: 8px 16px;
