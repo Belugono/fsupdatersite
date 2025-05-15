@@ -19,7 +19,7 @@ function showNotification(message, duration = 5000) {
 }
 
 function downloadFile(path) {
-  showNotification("Начинается загрузка...", 4000);
+  showNotification("Download started...", 4000);
 
   const link = document.createElement("a");
   link.href = path;
@@ -29,6 +29,6 @@ function downloadFile(path) {
   document.body.removeChild(link);
 
   setTimeout(() => {
-    showNotification("Файл загружен. Найдите его в папке 'Загрузки'.", 6000);
+    showNotification("File downloaded.", 6000);
   }, 3000); // Эмуляция завершения загрузки
 }
