@@ -1,14 +1,25 @@
-function showNotification(message) {
+function showNotification(message, duration = 5000) {
   const notification = document.getElementById("notification");
   notification.textContent = message;
   notification.style.display = "block";
-  notification.classList.remove("notification"); // сброс анимации
-  void notification.offsetWidth; // перезапуск анимации
-  notification.classList.add("notification");
+
+  // Плавно появиться
+  requestAnimationFrame(() => {
+    notification.classList.add("show");
+  });
+
+  // Через duration миллисекунд — исчезнуть
+  setTimeout(() => {
+    notification.classList.remove("show");
+    // Скрыть элемент полностью после исчезновения
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 500); // время исчезновения = 0.5s
+  }, duration);
 }
 
 function downloadFile(path) {
-  showNotification("Начинается загрузка...");
+  showNotification("Начинается загрузка...", 4000);
 
   const link = document.createElement("a");
   link.href = path;
@@ -17,8 +28,7 @@ function downloadFile(path) {
   link.click();
   document.body.removeChild(link);
 
-  // Предположим, что файл "скачан" через 3 секунды (эмуляция)
   setTimeout(() => {
-    showNotification("Файл загружен. Найдите его в папке 'Загрузки'.");
-  }, 3000);
+    showNotification("Файл загружен. Найдите его в папке 'Загрузки'.", 6000);
+  }, 3000); // Эмуляция завершения загрузки
 }
